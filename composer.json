@@ -25,7 +25,6 @@
         "symfony/http-client": "^6.2",
         "symfony/postmark-mailer": "^6.2",
         "vyuldashev/nova-permission": "^3.2",
-        "pictemplate/mrn-search-field": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -82,14 +81,6 @@
         "nova": {
             "type": "composer",
             "url": "https://nova.laravel.com"
-        },
-        "0": {
-            "type": "path",
-            "url": "./nova-components/MrnSearchField"
-        },
-        "1": {
-            "type": "path",
-            "url": "./nova-components/MrnSearchField"
         }
     }
 }
