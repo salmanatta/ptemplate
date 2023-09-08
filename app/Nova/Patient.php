@@ -50,7 +50,7 @@ class Patient extends Resource
     {
         return [
             ID::make()->sortable()->onlyOnDetail(),
-            MrnSearchField::make('SKM MR #'),
+            MrnSearchField::make('SKM MR No'),
             Text::make('First Name', 'first_name')
                 ->sortable()
                 ->rules('nullable', 'max:191'),
@@ -63,17 +63,17 @@ class Patient extends Resource
                 ->sortable(),
             Text::make('CNIC', 'cnic')
                 ->sortable(),
-            Text::make('Passport', 'passport')
-                ->sortable()->hide(),
-            Text::make('Religion', 'religion')
-                ->sortable()->hide(),
-            Text::make('Marital Status', 'marital_status')
-                ->sortable()->hide(),
-            Text::make('Blood Group', 'blood_group')
-                ->sortable()->hide(),
-            BelongsTo::make('Country' , 'country' , Country::class)->hide(),
-            BelongsTo::make('City' , 'city' , City::class)->hide(),
-            BelongsTo::make('Province' , 'province' , Province::class)->hide(),
+//            Text::make('Passport', 'passport')
+//                ->sortable()->hide(),
+//            Text::make('Religion', 'religion')
+//                ->sortable()->hide(),
+//            Text::make('Marital Status', 'marital_status')
+//                ->sortable()->hide(),
+//            Text::make('Blood Group', 'blood_group')
+//                ->sortable()->hide(),
+//            BelongsTo::make('Country' , 'country' , Country::class)->hide()->nullable(),
+//            BelongsTo::make('City' , 'city' , City::class)->hide()->nullable(),
+//            BelongsTo::make('Province' , 'province' , Province::class)->hide()->nullable(),
             Text::make('Address', 'address')
                 ->sortable()->hide(),
             Text::make('Phone Number', 'phone_no')
