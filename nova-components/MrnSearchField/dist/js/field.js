@@ -2516,7 +2516,7 @@ __webpack_require__.r(__webpack_exports__);
     getMRN: function getMRN() {
       axios__WEBPACK_IMPORTED_MODULE_1___default().get(window.location.origin + "/get-mrn/" + this.value).then(function (response) {
         if (response.status == 200) {
-          document.getElementById('skm_mr_#').value = response.data.mrn;
+          document.getElementById('skm_mr_no').value = response.data.mrn;
           document.getElementById('first_name-create-patient-text-field').value = response.data.name;
           document.getElementById('last_name-create-patient-text-field').value = response.data.father_name;
           document.getElementById('dob-create-patient-text-field').value = response.data.dob;
