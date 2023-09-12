@@ -29,7 +29,11 @@ class Patient extends Resource
      *
      * @var string
      */
+<<<<<<< HEAD
     public static $title = 'skm_mr_no';
+=======
+    public static $title = 'first_name';
+>>>>>>> 04836654200359be21f5919abc9391a7791f9627
 
     /**
      * The columns that should be searched.
@@ -37,7 +41,11 @@ class Patient extends Resource
      * @var array
      */
     public static $search = [
+<<<<<<< HEAD
         'skm_mr_no' ,'first_name'
+=======
+        'id', 'first_name'
+>>>>>>> 04836654200359be21f5919abc9391a7791f9627
     ];
 
     /**
@@ -50,19 +58,34 @@ class Patient extends Resource
     {
         return [
             ID::make()->sortable()->onlyOnDetail(),
+<<<<<<< HEAD
             MrnSearchField::make('SKM MR No')->showOnUpdating(function (){
                 return false;
             }),
             Text::make('First Name', 'first_name')
+=======
+            MrnSearchField::make('SKM MR No'),
+            Text::make('First Name')
+>>>>>>> 04836654200359be21f5919abc9391a7791f9627
                 ->sortable()
                 ->rules('nullable', 'max:191'),
             Text::make('Last Name', 'last_name')
                 ->sortable()
                 ->rules('nullable', 'max:191'),
             Text::make('Gender', 'gender')
+<<<<<<< HEAD
                 ->sortable(),
             Text::make('DOB', 'dob')
                 ->sortable(),
+=======
+                ->sortable()
+//                ->readonly()
+            ,
+            Text::make('DOB', 'dob')
+                ->sortable()
+//                ->readonly()
+            ,
+>>>>>>> 04836654200359be21f5919abc9391a7791f9627
             Text::make('CNIC', 'cnic')
                 ->sortable(),
 //            Text::make('Passport', 'passport')
@@ -73,7 +96,7 @@ class Patient extends Resource
 //                ->sortable()->hide(),
 //            Text::make('Blood Group', 'blood_group')
 //                ->sortable()->hide(),
-//            BelongsTo::make('Country' , 'country' , Country::class)->hide()->nullable(),
+            BelongsTo::make('Country' , 'country' , Country::class)->hide()->nullable(),
 //            BelongsTo::make('City' , 'city' , City::class)->hide()->nullable(),
 //            BelongsTo::make('Province' , 'province' , Province::class)->hide()->nullable(),
             Text::make('Address', 'address')
