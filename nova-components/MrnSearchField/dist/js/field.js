@@ -2517,7 +2517,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default().get(window.location.origin + "/get-mrn/" + this.value).then(function (response) {
         if (response.status == 200) {
           var url = window.location.href;
-          url = url.replace("new", response.data + "/edit");
+          url = url.replace("/new", "");
           window.location.href = url;
         }
       })["catch"](function (error) {

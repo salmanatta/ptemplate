@@ -29,7 +29,7 @@ class Patient extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'skm_mr_no';
 
     /**
      * The columns that should be searched.
@@ -37,7 +37,7 @@ class Patient extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name'
+        'skm_mr_no' ,'first_name'
     ];
 
     /**
@@ -50,7 +50,9 @@ class Patient extends Resource
     {
         return [
             ID::make()->sortable()->onlyOnDetail(),
-            MrnSearchField::make('SKM MR No'),
+            MrnSearchField::make('SKM MR No')->showOnUpdating(function (){
+                return false;
+            }),
             Text::make('First Name', 'first_name')
                 ->sortable()
                 ->rules('nullable', 'max:191'),
@@ -58,9 +60,9 @@ class Patient extends Resource
                 ->sortable()
                 ->rules('nullable', 'max:191'),
             Text::make('Gender', 'gender')
-                ->sortable()->readonly(),
+                ->sortable(),
             Text::make('DOB', 'dob')
-                ->sortable()->readonly(),
+                ->sortable(),
             Text::make('CNIC', 'cnic')
                 ->sortable(),
 //            Text::make('Passport', 'passport')

@@ -50,7 +50,7 @@ export default {
                 .then(function(response) {
                     if (response.status == 200) {
                         let url = window.location.href;
-                        url = url.replace("new" , response.data+"/edit");
+                        url = url.replace("/new" , "");
                         window.location.href = url;
                     }
                 })
