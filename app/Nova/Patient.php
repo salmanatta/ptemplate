@@ -55,16 +55,31 @@ class Patient extends Resource
             }),
             Text::make('First Name', 'first_name')
                 ->sortable()
-                ->rules('nullable', 'max:191'),
+                ->rules('nullable', 'max:191')
+                ->showOnUpdating(function (){
+                    return true;
+                }),
             Text::make('Last Name', 'last_name')
                 ->sortable()
-                ->rules('nullable', 'max:191'),
+                ->rules('nullable', 'max:191')
+                ->showOnUpdating(function (){
+                    return true;
+                }),
             Text::make('Gender', 'gender')
-                ->sortable(),
+                ->sortable()
+                ->showOnUpdating(function (){
+                    return true;
+                }),
             Text::make('DOB', 'dob')
-                ->sortable(),
+                ->sortable()
+                ->showOnUpdating(function (){
+                    return true;
+                }),
             Text::make('CNIC', 'cnic')
-                ->sortable(),
+                ->sortable()
+                ->showOnUpdating(function (){
+                    return true;
+                }),
 //            Text::make('Passport', 'passport')
 //                ->sortable()->hide(),
 //            Text::make('Religion', 'religion')
@@ -77,11 +92,17 @@ class Patient extends Resource
 //            BelongsTo::make('City' , 'city' , City::class)->hide()->nullable(),
 //            BelongsTo::make('Province' , 'province' , Province::class)->hide()->nullable(),
             Text::make('Address', 'address')
-                ->sortable()->hide(),
+                ->sortable()->showOnUpdating(function (){
+                    return true;
+                }),
             Text::make('Phone Number', 'phone_no')
-                ->sortable(),
+                ->sortable()->showOnUpdating(function (){
+                    return true;
+                }),
             Text::make('Email', 'email')
-                ->sortable()->hide(),
+                ->sortable()->showOnUpdating(function (){
+                    return true;
+                }),
         ];
     }
     /**
