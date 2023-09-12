@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Date;
@@ -75,18 +76,18 @@ class HPCardiacTemplate extends Resource
                 ->trueValue(true)
                 ->falseValue(false),
             Text::make('Elevated S.Creatinine','elevated_creatinine'),
-            Text::make('CSS Class','css_class'),
-            Text::make('NYHA Class','nyha_class'),
+            Text::make('CSS Class','css_class')->rules('required'),
+            Text::make('NYHA Class','nyha_class')->rules('required'),
             Date::make('MI Date','mi_date'),
             Date::make('PCI Date','pci_date'),
             Date::make('Previous CABG Date','previous_cabg_date'),
             Date::make('Previous Valve Date','previous_valve_date'),
-            Textarea::make('Past Medical History','past_medical_history_others')->rows(3),
-            Textarea::make('General Examination','general_examination')->rows(3),
+            Trix::make('Past Medical History','past_medical_history_others'),
+            Trix::make('General Examination','general_examination')->rules('required'),
             Text::make('CVS','cvs'),
             Text::make('Chest','chest'),
             Text::make('Extremities','extremities'),
-            Textarea::make('Systemic Examination','systemic_examination_others')->rows(3),
+            Trix::make('Systemic Examination','systemic_examination_others'),
             Text::make('INR','inr'),
             Text::make('HbA1C','hba1c'),
             Text::make('TAG','tag'),
@@ -98,7 +99,15 @@ class HPCardiacTemplate extends Resource
             Date::make('ECHO Date','echo_date'),
             Text::make('LVEF','lvef'),
             Date::make('Cardiac Cath Date','cardiac_cath_date'),
-            Text::make('Cardiac Cath Findings','cardiac_cath_findings')
+            Text::make('Cardiac Cath Findings','cardiac_cath_findings'),
+            Text::make('Carotid Duplex Left','carotid_duplex_left'),
+            Text::make('Carotid Duplex Right','carotid_duplex_right'),
+            Text::make('Diagnosis','diagnosis')->rules('required'),
+            Text::make('Management_Plan','management_plan')->rules('required'),
+            Date::make('Tentative Date Procedure','tentative_date_procedure'),
+            Text::make('Followup Visit','followup_visit')->rules('required'),
+            Text::make('Patient Education','patient_education')->rules('required'),
+
 
 
 
