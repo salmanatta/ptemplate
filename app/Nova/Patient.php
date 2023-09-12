@@ -58,9 +58,9 @@ class Patient extends Resource
                 ->sortable()
                 ->rules('nullable', 'max:191'),
             Text::make('Gender', 'gender')
-                ->sortable(),
+                ->sortable()->readonly(),
             Text::make('DOB', 'dob')
-                ->sortable(),
+                ->sortable()->readonly(),
             Text::make('CNIC', 'cnic')
                 ->sortable(),
 //            Text::make('Passport', 'passport')
