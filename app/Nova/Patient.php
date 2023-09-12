@@ -29,7 +29,7 @@ class Patient extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'first_name';
 
     /**
      * The columns that should be searched.
@@ -37,7 +37,7 @@ class Patient extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name'
+        'id', 'first_name'
     ];
 
     /**
@@ -51,16 +51,20 @@ class Patient extends Resource
         return [
             ID::make()->sortable()->onlyOnDetail(),
             MrnSearchField::make('SKM MR No'),
-            Text::make('First Name', 'first_name')
+            Text::make('First Name')
                 ->sortable()
                 ->rules('nullable', 'max:191'),
             Text::make('Last Name', 'last_name')
                 ->sortable()
                 ->rules('nullable', 'max:191'),
             Text::make('Gender', 'gender')
-                ->sortable()->readonly(),
+                ->sortable()
+//                ->readonly()
+            ,
             Text::make('DOB', 'dob')
-                ->sortable()->readonly(),
+                ->sortable()
+//                ->readonly()
+            ,
             Text::make('CNIC', 'cnic')
                 ->sortable(),
 //            Text::make('Passport', 'passport')
@@ -71,7 +75,7 @@ class Patient extends Resource
 //                ->sortable()->hide(),
 //            Text::make('Blood Group', 'blood_group')
 //                ->sortable()->hide(),
-//            BelongsTo::make('Country' , 'country' , Country::class)->hide()->nullable(),
+            BelongsTo::make('Country' , 'country' , Country::class)->hide()->nullable(),
 //            BelongsTo::make('City' , 'city' , City::class)->hide()->nullable(),
 //            BelongsTo::make('Province' , 'province' , Province::class)->hide()->nullable(),
             Text::make('Address', 'address')
