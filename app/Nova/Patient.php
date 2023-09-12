@@ -103,6 +103,7 @@ class Patient extends Resource
                 ->sortable()->showOnUpdating(function (){
                     return true;
                 }),
+            HasMany::make('Initial H&P Cardiac Surgery','hpcardiac' , HPCardiacTemplate::class)
         ];
     }
     /**

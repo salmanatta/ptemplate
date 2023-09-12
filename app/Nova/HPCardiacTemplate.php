@@ -33,6 +33,8 @@ class HPCardiacTemplate extends Resource
      */
     public static $title = 'name';
 
+    public static $group = 'OPD Templates';
+
     /**
      * The columns that should be searched.
      *
@@ -134,5 +136,10 @@ class HPCardiacTemplate extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
+    }
+
+    public static function label()
+    {
+        return 'H&P Initial Cardiac Surgery';
     }
 }
