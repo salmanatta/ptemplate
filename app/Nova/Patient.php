@@ -85,7 +85,8 @@ class Patient extends Resource
                 ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             Text::make('Email', 'email')
                 ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
-            HasMany::make('Initial H&P Cardiac Surgery','hpcardiac' , HPCardiacTemplate::class)
+            HasMany::make('Initial H&P Cardiac Surgery','hpcardiac' , HPCardiacTemplate::class),
+            HasMany::make('Initial H&P Cardiac Surgery','hpcardiacNurse' , HPCardiacTemplateNurse::class)
         ];
     }
     /**
