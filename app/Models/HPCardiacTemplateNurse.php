@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class HPCardiacTemplateNurse extends Model
 {
     use HasFactory;
+
+    public function patient()
+    {
+       return $this->belongsTo(Patient::class,'patient_id','id');
+    }
 }
