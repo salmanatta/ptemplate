@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -57,26 +58,22 @@ class HPCardiacTemplate extends Resource
             ID::make()->sortable()->onlyOnDetail(),
             BelongsTo::make('Patient','patient',Patient::class)
                 ->searchable(),
-            Boolean::make('DM','dm')
-                ->trueValue(true)
-                ->falseValue(false),
-            Boolean::make('HTN','htn')
-                ->trueValue(true)
-                ->falseValue(false),
-            Boolean::make('CVA','cva')
-                ->trueValue(true)
-                ->falseValue(false),
-            Boolean::make('Smoking','smoking')
-                ->trueValue(true)
-                ->falseValue(false),
-            Boolean::make('PAD','pad')
-                ->trueValue(true)
-                ->falseValue(false),
-            Boolean::make('Dyslipidemia','dyslipidemia')
-                ->trueValue(true)
-                ->falseValue(false),
+            BooleanGroup::make('Risk Factor','risk_factor')->options([
+                'DM' => 'DM',
+                'HTN' => 'HTN',
+                'CVA' => 'CVA',
+                'Smoking' => 'Smoking',
+                'PAD' => 'PAD',
+                'Dyslipidemia' => 'Dyslipidemia',
+            ]),
             Text::make('Elevated S.Creatinine','elevated_creatinine'),
-            Text::make('CSS Class','css_class')->rules('required'),
+            Select::make('CSS Class','css_class')
+                ->options([
+                  'I' => 'I',
+                  'II' => 'II',
+                  'III' => 'III',
+                  'IV' => 'IV',
+                ])->rules('required'),
             Text::make('NYHA Class','nyha_class')->rules('required'),
             Date::make('MI Date','mi_date'),
             Date::make('PCI Date','pci_date'),
@@ -106,12 +103,10 @@ class HPCardiacTemplate extends Resource
             Text::make('Management_Plan','management_plan')->rules('required'),
             Date::make('Tentative Date Procedure','tentative_date_procedure'),
             Text::make('Followup Visit','followup_visit')->rules('required'),
-            Text::make('Patient Education','patient_education')->rules('required'),
-
-
-
-
-
+            Boolean::make('Patient Education','patient_education')
+                ->trueValue(true)
+                ->falseValue(false)
+                ->rules('required'),
         ];
     }
     /**

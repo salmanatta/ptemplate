@@ -17,6 +17,7 @@ class HPCardiacTemplate extends Model
         'echo_date' => 'date',
         'cardiac_cath_date' => 'date',
         'tentative_date_procedure' => 'date',
+        'risk_factor' => 'array',
     ];
 
     public function patient()
