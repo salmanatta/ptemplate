@@ -55,31 +55,16 @@ class Patient extends Resource
             }),
             Text::make('First Name', 'first_name')
                 ->sortable()
-                ->rules('nullable', 'max:191')
-                ->showOnUpdating(function (){
-                    return true;
-                }),
+                ->rules('nullable', 'max:191')->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             Text::make('Last Name', 'last_name')
                 ->sortable()
-                ->rules('nullable', 'max:191')
-                ->showOnUpdating(function (){
-                    return true;
-                }),
+                ->rules('nullable', 'max:191')->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             Text::make('Gender', 'gender')
-                ->sortable()
-                ->showOnUpdating(function (){
-                    return true;
-                }),
+                ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             Text::make('DOB', 'dob')
-                ->sortable()
-                ->showOnUpdating(function (){
-                    return true;
-                }),
+                ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             Text::make('CNIC', 'cnic')
-                ->sortable()
-                ->showOnUpdating(function (){
-                    return true;
-                }),
+                ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
 //            Text::make('Passport', 'passport')
 //                ->sortable()->hide(),
 //            Text::make('Religion', 'religion')
@@ -92,17 +77,11 @@ class Patient extends Resource
 //            BelongsTo::make('City' , 'city' , City::class)->hide()->nullable(),
 //            BelongsTo::make('Province' , 'province' , Province::class)->hide()->nullable(),
             Text::make('Address', 'address')
-                ->sortable()->showOnUpdating(function (){
-                    return true;
-                }),
+                ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             Text::make('Phone Number', 'phone_no')
-                ->sortable()->showOnUpdating(function (){
-                    return true;
-                }),
+                ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             Text::make('Email', 'email')
-                ->sortable()->showOnUpdating(function (){
-                    return true;
-                }),
+                ->sortable()->onlyOnPreview()->onlyOnDetail()->onlyOnIndex(),
             HasMany::make('Initial H&P Cardiac Surgery','hpcardiac' , HPCardiacTemplate::class)
         ];
     }
