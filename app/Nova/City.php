@@ -19,6 +19,8 @@ class City extends Resource
      */
     public static $model = \App\Models\City::class;
 
+    public static $displayInNavigation = false;
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

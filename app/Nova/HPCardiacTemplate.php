@@ -34,7 +34,7 @@ class HPCardiacTemplate extends Resource
      */
     public static $title = 'name';
 
-    public static $group = 'OPD Templates';
+    public static $group = 'OPD Cardiac Surgery';
 
     /**
      * The columns that should be searched.

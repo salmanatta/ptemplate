@@ -46,6 +46,9 @@ class Patient extends Resource
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
+
+    public static $group = 'Import MR';
+
     public function fields(NovaRequest $request)
     {
         return [
