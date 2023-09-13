@@ -58,55 +58,12 @@ class HPCardiacTemplateNurse extends Resource
             ID::make()->sortable()->onlyOnDetail(),
             BelongsTo::make('Patient','patient',Patient::class)
                 ->searchable(),
-            BooleanGroup::make('Risk Factor','risk_factor')->options([
-                'DM' => 'DM',
-                'HTN' => 'HTN',
-                'CVA' => 'CVA',
-                'Smoking' => 'Smoking',
-                'PAD' => 'PAD',
-                'Dyslipidemia' => 'Dyslipidemia',
-            ]),
-            Text::make('Elevated S.Creatinine','elevated_creatinine'),
-            Select::make('CSS Class','css_class')
+            Select::make('Reason for Visit','reason_for_visit')
                 ->options([
-                  'I' => 'I',
-                  'II' => 'II',
-                  'III' => 'III',
-                  'IV' => 'IV',
+                    'Follow Up' => 'Follow Up',
+                    'Initial' => 'Initial',
                 ])->rules('required'),
-            Text::make('NYHA Class','nyha_class')->rules('required'),
-            Date::make('MI Date','mi_date'),
-            Date::make('PCI Date','pci_date'),
-            Date::make('Previous CABG Date','previous_cabg_date'),
-            Date::make('Previous Valve Date','previous_valve_date'),
-            Trix::make('Past Medical History','past_medical_history_others'),
-            Trix::make('General Examination','general_examination')->rules('required'),
-            Text::make('CVS','cvs'),
-            Text::make('Chest','chest'),
-            Text::make('Extremities','extremities'),
-            Trix::make('Systemic Examination','systemic_examination_others'),
-            Text::make('INR','inr'),
-            Text::make('HbA1C','hba1c'),
-            Text::make('TAG','tag'),
-            Text::make('HDL','hdl'),
-            Text::make('LDL','ldl'),
-            Text::make('Cholestrol','cholestrol'),
-            Text::make('Chest X-Ray','chest_xray'),
-            Text::make('ECG','ecg'),
-            Date::make('ECHO Date','echo_date'),
-            Text::make('LVEF','lvef'),
-            Date::make('Cardiac Cath Date','cardiac_cath_date'),
-            Text::make('Cardiac Cath Findings','cardiac_cath_findings'),
-            Text::make('Carotid Duplex Left','carotid_duplex_left'),
-            Text::make('Carotid Duplex Right','carotid_duplex_right'),
-            Text::make('Diagnosis','diagnosis')->rules('required'),
-            Text::make('Management_Plan','management_plan')->rules('required'),
-            Date::make('Tentative Date Procedure','tentative_date_procedure'),
-            Text::make('Followup Visit','followup_visit')->rules('required'),
-            Boolean::make('Patient Education','patient_education')
-                ->trueValue(true)
-                ->falseValue(false)
-                ->rules('required'),
+            Trix::make('Presenting Complaints','presenting_complaints'),
         ];
     }
     /**
