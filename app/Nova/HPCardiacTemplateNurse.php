@@ -6,6 +6,7 @@ use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
@@ -64,6 +65,67 @@ class HPCardiacTemplateNurse extends Resource
                     'Initial' => 'Initial',
                 ])->rules('required'),
             Trix::make('Presenting Complaints','presenting_complaints'),
+            Trix::make('History of Present Complaints','history_present_complain'),
+            BooleanGroup::make('Allergies','allergies')->options([
+                'Food' => 'Food',
+                'Drugs' => 'Drugs',
+            ]),
+            Trix::make('Current Medications','current_medication')->rules('required'),
+            Select::make('Martial Status','martial_status')
+                ->options([
+                    'Single' => 'Single',
+                    'Married' => 'Married',
+                    'Widowed' => 'Widowed',
+                    'Divorced' => 'Divorced',
+                    'Separated' => 'Separated',
+                ])->rules('required'),
+            Number::make('No of Children','no_of_children'),
+            Select::make('Employed','employed')
+                ->options([
+                    'Yes' => 'Yes',
+                    'No' => 'No',
+                ])->rules('required'),
+            Select::make('Psychological Issues','psychological_issues')
+                ->options([
+                    'Yes' => 'Yes',
+                    'No' => 'No',
+                ])->rules('required'),
+            Select::make('Addictions','addictions')
+                ->options([
+                    'Smoking' => 'Smoking',
+                    'Tobacco' => 'Tobacco',
+                    'Others' => 'Others',
+                ]),
+            Select::make('Religion','religion')
+                ->options([
+                    'Islam' => 'Islam',
+                    'Christianity' => 'Christianity',
+                    'Hinduism' => 'Hinduism',
+                    'Others' => 'Others',
+                ])->rules('required'),
+            Boolean::make('Privacy','privacy')
+                ->trueValue(true)
+                ->falseValue(false)
+                ->rules('required'),
+            Boolean::make('Food','food')
+                ->trueValue(true)
+                ->falseValue(false)
+                ->rules('required'),
+            Boolean::make('Male Refusal','male_refusal')
+                ->trueValue(true)
+                ->falseValue(false)
+                ->rules('required'),
+            Text::make('others'),
+            BooleanGroup::make('Nutrition Assessment','nutrition_assessment')->options([
+                'History of weight loss / gian in past two months' => 'Weight loss/Gain History',
+                'History of hospitalization in past two months' => 'Hospitalization History',
+                'Loss of Appetite' => 'Loss of Appetite',
+            ]),
+            Number::make('Nutrition Assessment Score','nutrition_assessment_score')->rules('required'),
+            Boolean::make('Informed to duty doctor for dietitian referral if score is >= 3?','dietitian_referral_required')
+                ->trueValue(true)
+                ->falseValue(false)
+                ->rules('required'),
         ];
     }
     /**
