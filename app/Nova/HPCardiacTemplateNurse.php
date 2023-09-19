@@ -163,6 +163,6 @@ class HPCardiacTemplateNurse extends Resource
 
     public static function label()
     {
-        return 'H&P Initial Cardiac Surgery';
+        return 'H&P Initial Cardiac Surgery - Nursing';
     }
 }

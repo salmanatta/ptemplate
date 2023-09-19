@@ -9,6 +9,11 @@ class HPCardiacTemplateNurse extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'allergies' => 'array',
+        'nutrition_assessment' => 'array',
+    ];
+
     public function patient()
     {
        return $this->belongsTo(Patient::class,'patient_id','id');
