@@ -32,5 +32,9 @@ class Patient extends Model
         return $this->hasMany(HPCardiacTemplateNurse::class , 'patient_id','id');
     }
 
+    public function hpcardiology(){
+        return $this->hasMany(HPCardiologyTemplate::class , 'patient_id','id');
+    }
+
 
 }
